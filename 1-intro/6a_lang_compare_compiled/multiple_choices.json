@@ -1,0 +1,4 @@
+{
+  "question": "Which language is interpreted?",
+  "answers": ["Python --> This one", "Rust", "Go", "C++"]
+}
