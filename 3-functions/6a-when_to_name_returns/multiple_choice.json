@@ -1,0 +1,6 @@
+{
+  "question": "When should named returns be used?",
+  "answers": [
+    "When there are many values being returned"
+  ]
+}

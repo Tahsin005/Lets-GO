@@ -1,0 +1,6 @@
+{
+  "question": "What is a guard clause?",
+  "answers": [
+    "An early return from a function when a given condition is met"
+  ]
+}
