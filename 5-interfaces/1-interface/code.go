@@ -30,7 +30,7 @@ func (sr SendingReport) getMessage() string {
 
 func SendMessage(m message) {
 	fmt.Println(m.getMessage())
-	fmt.Println("====================================")
+	fmt.Println("Message sent successfully!")
 }
 
 func test(m message) {
