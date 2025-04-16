@@ -1,0 +1,6 @@
+{
+  "question": "What's one advantage of using an anonymous struct?",
+  "answers": [
+    "Anonymous structs prevent you from re-using a struct definition you never intended to re-use"
+  ]
+}

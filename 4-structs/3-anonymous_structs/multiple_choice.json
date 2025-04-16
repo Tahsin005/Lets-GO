@@ -1,0 +1,6 @@
+{
+  "question": "What is a good reason to use an anonymous struct?",
+  "answers": [
+    "It is only being used once"
+  ]
+}
