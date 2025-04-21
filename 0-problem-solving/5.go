@@ -4,23 +4,27 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strconv"
 )
 
 // https://codeforces.com/problemset/problem/1606/A
 
-func main() {
-	scanner := bufio.NewScanner(os.Stdin)
+var (
+	in = bufio.NewReader(os.Stdin)
+	out = bufio.NewWriter(os.Stdout)
+)
 
-	scanner.Scan()
-	n, _ := strconv.Atoi(scanner.Text())
+func main() {
+	defer out.Flush()
+
+	var n int
+	fmt.Scan(&n)
 
 	for i := 0; i < n; i++ {
-		scanner.Scan()
-		s := scanner.Text()
+		var s string
+		fmt.Scan(&s)
 
 		if len(s) > 0 {
-			lastChar := string(s[len(s)-1])
+			lastChar := string(s[len(s) - 1])
 			rest := s[1:]
 			fmt.Println(lastChar + rest)
 		}
