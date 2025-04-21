@@ -1,0 +1,6 @@
+{
+  "question": "What does the len() function return?",
+  "answers": [
+    "The current length of the slice"
+  ]
+}
