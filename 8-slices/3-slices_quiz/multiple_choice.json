@@ -1,0 +1,9 @@
+{
+  "question": "Which references the other?",
+  "answers": [
+    "Slices reference arrays"
+  ],
+  "info-about-slice": "slice are always passed by reference"
+}
+
+
