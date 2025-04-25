@@ -1,0 +1,6 @@
+{
+  "question": "What does 'go install' do?",
+  "answers": [
+    "Compiles and installs the program locally"
+  ]
+}
