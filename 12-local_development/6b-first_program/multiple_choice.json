@@ -1,0 +1,6 @@
+{
+  "question": "What does the first line of go.mod contain?",
+  "answers": [
+    "module {REMOTE}/{USERNAME}/hellogo"
+  ]
+}

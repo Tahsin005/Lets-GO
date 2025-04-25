@@ -1,0 +1,6 @@
+{
+  "question": "Why does Go include a remote URL in module paths?",
+  "answers": [
+    "To simplify remote downloading of packages"
+  ]
+}
