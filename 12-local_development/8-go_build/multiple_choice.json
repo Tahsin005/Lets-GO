@@ -1,0 +1,6 @@
+{
+  "question": "What was created after running 'go build'?",
+  "answers": [
+    "An executable file named 'hellogo'"
+  ]
+}
