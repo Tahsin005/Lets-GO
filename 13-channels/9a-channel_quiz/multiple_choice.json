@@ -1,0 +1,6 @@
+{
+  "question": "What happens when you send to a closed channel?",
+  "answers": [
+    "Panic"
+  ]
+}
