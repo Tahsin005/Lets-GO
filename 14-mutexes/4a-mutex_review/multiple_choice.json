@@ -1,0 +1,6 @@
+{
+  "question": "Why would you use a mutex?",
+  "answers": [
+    "To safely access a data structure concurrently"
+  ]
+}
