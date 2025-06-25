@@ -13,6 +13,7 @@ func minimumOperations(nums []int) int {
     }
     return count
 }
+
 func main () {
 
 }
