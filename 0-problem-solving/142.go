@@ -1,42 +1,18 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-)
+import "fmt"
 
-func main () {
-	var n, q int
-	fmt.Scan(&n, &q)
+func main() {
+	n, s := 0, ""
+	fmt.Scan(&n, &s)
 
-	p := make([]int64, n)
-
-	for i := range p {
-		fmt.Scan(&p[i])
+	result := ""
+	if n % 2 == 1 {
+		result, s, n = s[0:1], s[1:], n - 1
 	}
 
-	sort.Slice(p, func(i, j int) bool {
-		return p[i] < p[j]
-	})
-
-	psa := make([]int64, n)
-
-	for i := range p {
-		psa[i] = p[i]
-
-		if i != 0 {
-			psa[i] += psa[i-1]
-		}
+	for i := 0; i < n; i += 2 {
+		result = s[i:i + 1] + result + s[i + 1:i + 2]
 	}
-
-	for i := 0; i < q; i++ {
-		var x, y int
-		fmt.Scan(&x, &y)
-
-		l := n - x
-		r := n - x + y - 1
-
-		s := psa[r] - psa[l] + p[l]
-		fmt.Println(s)
-	}
+	fmt.Println(result)
 }
