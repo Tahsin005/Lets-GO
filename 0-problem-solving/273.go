@@ -1,3 +1,9 @@
+package main
+
+import "fmt"
+
+// https://leetcode.com/problems/decrypt-string-from-alphabet-to-integer-mapping/description/?envType=problem-list-v2&envId=n6ww7n9h
+
 func freqAlphabets(s string) string {
 	result := ""
 	for i := 0; i < len(s); i++ {
@@ -9,4 +15,8 @@ func freqAlphabets(s string) string {
 		result += string(n + 'a' - 1)
 	}
 	return result
+}
+
+func main () {
+
 }
