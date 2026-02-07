@@ -88,6 +88,20 @@ func main() {
 		best = append(best, i)
 		printSlice(best)
 	}
+
+	fmt.Println("----------------")
+
+	for i := 0; i < len(best); i++ {
+		fmt.Printf("best[%d] = %d\n", i, best[i])
+	}
+
+	fmt.Println("----------------")
+
+	fmt.Println("Using range")
+	for i, v := range best {
+		// if we make any changes here, this will not affect the original slice. As this is a copy of the original slice
+		fmt.Printf("best[%d] = %d\n", i, v)
+	}
 }
 
 func printSlice(s []int) {
