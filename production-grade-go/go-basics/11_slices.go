@@ -59,6 +59,35 @@ func main() {
 
 	d := c[2:5]
 	printSlice(d)
+
+	fmt.Println("----------------")
+
+	var ss []int
+	printSlice(ss)
+
+	ss = append(ss, 1)
+	printSlice(ss)
+
+	ss = append(ss, 2)
+	printSlice(ss)
+
+	ss = append(ss, 3)
+	printSlice(ss)
+
+	ss = append(ss, 4, 5, 6, 7)
+	printSlice(ss)
+
+	fmt.Println("----------------")
+
+	fmt.Println("If we know beforehand, the max size of the slice, then this is the bast way to initialize it")
+
+	best := make([]int, 0, 10)
+	printSlice(best)
+
+	for i := 0; i < 10; i++ {
+		best = append(best, i)
+		printSlice(best)
+	}
 }
 
 func printSlice(s []int) {
