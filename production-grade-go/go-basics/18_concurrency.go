@@ -20,6 +20,15 @@ func sum(s []int, c chan int) {
 	c <- total
 }
 
+func fibonacci(n int, c chan int) {
+	a, b := 0, 1
+	for i := 0; i < n; i++ {
+		c <- a
+		a, b = b, a+b
+	}
+	close(c)
+}
+
 func main() {
 	// go say("world")
 	// say("hello")
@@ -33,4 +42,12 @@ func main() {
 	y := <-c
 
 	fmt.Println(x, y, x+y)
+
+	fmt.Println("----------------")
+
+	cc := make(chan int, 10)
+	go fibonacci(cap(cc), cc)
+	for i := range cc {
+		fmt.Println(i)
+	}
 }
