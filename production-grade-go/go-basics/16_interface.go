@@ -32,6 +32,16 @@ func do(i interface{}) {
 	}
 }
 
+// stringer interface
+type Person struct {
+	Name string
+	Age int
+}
+
+func (p Person) String() string {
+	return fmt.Sprintf("%s is %d years old", p.Name, p.Age)
+}
+
 func main() {
 	var a Abser
 	f := MyFloat(-math.Sqrt2)
@@ -43,6 +53,8 @@ func main() {
 	// a = v // error: cannot use v (variable of type Verteyy) as Abser value in assignment: Verteyy does not implement Abser (Abs method has pointer receiver)
 
 	fmt.Println(a.Abs())
+	
+	fmt.Println("----------------")
 
 	var i I = T{"hello"}
 
@@ -52,6 +64,11 @@ func main() {
 	do(21)
 	do("hello")
 	do(21.21)
+
+	fmt.Println("----------------")
+
+	p := Person{"Tahsin", 21}
+	fmt.Println(p)
 }
 
 type MyFloat float64
