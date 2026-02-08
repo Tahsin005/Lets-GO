@@ -29,6 +29,20 @@ func fibonacci(n int, c chan int) {
 	close(c)
 }
 
+// example of select
+func fibo(c, quit chan int) {
+	x, y := 0, 1
+	for {
+		select {
+		case c <- x:
+			x, y = y, x+y
+		case <-quit:
+			fmt.Println("quit")
+			return
+		}
+	}
+}
+
 func main() {
 	// go say("world")
 	// say("hello")
@@ -50,4 +64,16 @@ func main() {
 	for i := range cc {
 		fmt.Println(i)
 	}
+
+	fmt.Println("----------------")
+
+	ccc := make(chan int)
+	quit := make(chan int)
+	go func ()  {
+		for i := 0; i < 10; i++ {
+			fmt.Println(<-ccc)
+		}
+		quit <- 0
+	}()
+	fibo(ccc, quit)
 }
