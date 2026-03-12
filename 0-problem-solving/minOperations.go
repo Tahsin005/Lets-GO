@@ -1,36 +1,40 @@
 func minOperations(s string) int {
-	zeroStateForFirstCandidate := true   // pattern: 0 1 0 1 ...
-	zeroStateForSecondCandidate := false // pattern: 1 0 1 0 ...
+	n := len(s)
 
-	count1, count2 := 0, 0
-
-	for _, char := range s {
-		if char == '0' {
-			if !zeroStateForFirstCandidate {
-				count1++
-			}
-		} else {
-			if zeroStateForFirstCandidate {
-				count1++
-			}
+	sorted := true
+	for i := 1; i < n; i++ {
+		if s[i] < s[i - 1] {
+			sorted = false
+			break
 		}
-
-		if char == '0' {
-			if !zeroStateForSecondCandidate {
-				count2++
-			}
-		} else {
-			if zeroStateForSecondCandidate {
-				count2++
-			}
-		}
-
-		zeroStateForFirstCandidate = !zeroStateForFirstCandidate
-		zeroStateForSecondCandidate = !zeroStateForSecondCandidate
+	}
+	if sorted {
+		return 0
 	}
 
-	if count1 < count2 {
-		return count1
+	if n == 2 {
+		return -1
 	}
-	return count2
+
+	minChar := s[1]
+	maxChar := s[1]
+
+	for i := 1; i < n - 1; i++ {
+		if s[i] < minChar {
+			minChar = s[i]
+		}
+		if s[i] > maxChar {
+			maxChar = s[i]
+		}
+	}
+
+	if s[0] <= s[n - 1] && (minChar >= s[0] || maxChar <= s[n - 1]) {
+		return 1
+	}
+
+	if s[n - 1] < minChar && s[0] > maxChar {
+		return 3
+	}
+
+	return 2
 }
