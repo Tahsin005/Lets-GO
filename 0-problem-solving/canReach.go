@@ -1,13 +1,12 @@
-func canReach(arr []int, start int) bool {
-    if (start < 0 || start >= len(arr) || arr[start] < 0) {
-        return false
+func canReach(start []int, target []int) bool {
+    manhattanDistance := abs(start[0] - target[0]) + abs(start[1] - target[1])
+    return manhattanDistance % 2 == 0
+}
+
+func abs(n int) int {
+    if n < 0 {
+        return -n
     }
 
-    if (arr[start] == 0) {
-        return true
-    }
-    
-    arr[start] =-arr[start]
-    return canReach(arr, start + arr[start]) || canReach(arr, start - arr[start])
-
+    return n
 }
