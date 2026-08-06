@@ -1,14 +1,15 @@
-func smallestNumber(pattern string) string {
-    stack := []rune{}
-    var ans string
-    pattern += "I"
-    for i := 1; i <= len(pattern); i++ {
-        stack = append(stack, rune(i + '0'))
-        if pattern[i - 1] == 'I' {
-            slices.Reverse(stack)
-            ans += string(stack)
-            stack = stack[:0]
-        } 
+func smallestNumber(n int, t int) int {
+    for mult(n) % t != 0 {
+        n++
     }
-    return ans
+    return n
+}
+
+func mult(n int) int {
+    mult := 1
+    for n > 0 {
+        mult *= n % 10 
+        n /= 10
+    }
+    return mult
 }
