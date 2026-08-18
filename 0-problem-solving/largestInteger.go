@@ -1,27 +1,37 @@
-func largestInteger(n int, s int) int {
-	if s == 0 {
-		return 0
+func largestInteger(nums []int, k int) int {
+	n := len(nums)
+	if n == k {
+		res := nums[0]
+		for _, x := range nums {
+			if x > res {
+				res = x
+			}
+		}
+		return res
 	}
 
-	if s > 9 * n {
+	count := make([]int, 51)
+	for _, x := range nums {
+		count[x]++
+	}
+
+	if k == 1 {
+		for i := 50; i >= 0; i-- {
+			if count[i] == 1 {
+				return i
+			}
+		}
 		return -1
 	}
 
-	ans := ""
-
-	for i := 0; i < n; i++ {
-		digit := min(9, s)
-		ans += string(rune('0' + digit))
-		s -= digit
+	res := -1
+	if count[nums[0]] == 1 {
+		res = max(res, nums[0])
 	}
 
-	res, _ := strconv.Atoi(ans)
+	if count[nums[n - 1]] == 1 {
+		res = max(res, nums[n - 1])
+	}
+
 	return res
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
