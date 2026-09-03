@@ -1,32 +1,17 @@
-func uniformArray(nums1 []int) bool {
-    o, e := true, true
-    for i := 0; i < len(nums1); i++ {
-        d1, d2 := false, false
-        if i + 1 < len(nums1){
-           if (nums1[i] - nums1[i + 1]) % 2 != 0 {
-               d2 = true
-           }
-        }
-        if nums1[i] % 2 != 0 {
-            d1 = true
-        }
-        if !d1 && !d2 {
-            o = false
+func uniformArray(nums []int) bool {
+    minny := int(1e9)
+    hasOdd := false
+    
+    for _, num := range nums {
+        minny = min(minny, num)
+        if num % 2 != 0 {
+            hasOdd = true
         }
     }
-    for i := 0; i < len(nums1); i++ {
-        d1, d2 := false, false
-        if i + 1 < len(nums1){
-           if (nums1[i] - nums1[i + 1]) % 2 == 0 {
-               d2 = true
-           }
-        }
-        if nums1[i] % 2 == 0 {
-            d1 = true
-        }
-        if !d1 && !d2 {
-            o = false
-        }
+
+    if !hasOdd {
+        return true
     }
-    return o || e
+
+    return minny % 2 != 0
 }
